@@ -13,6 +13,16 @@ public class MainScript : MonoBehaviour
     private button1 button1;
     [SerializeField]
     private button2 button2;
+    [SerializeField]
+    private ClickerMA clickerMA;
+    [SerializeField]
+    private Clicker10A clicker10A;
+    [SerializeField]
+    private ClickerV clickerV;
+    [SerializeField]
+    private ClickerCOM clickerCOM;
+    [SerializeField]
+    private WireBlack wireBlack;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +30,10 @@ public class MainScript : MonoBehaviour
         rotate.Rotating(KrytilkaChanged);
         button1.Button1Click(OnOff);
         button2.Button2Click(AC_DC);
+        clickerMA.ButtonMACLick(MA);
+        clicker10A.Button10AClick(A10);
+        clickerV.ButtonVClick(V);
+        clickerCOM.ButtonCOMClick(COM);
     }
 
     // Update is called once per frame
@@ -41,5 +55,21 @@ public class MainScript : MonoBehaviour
     private void AC_DC()
     {
         Debug.Log("Режим AC/DC" + button2.work2);
+    }
+    private void A10()
+    {
+        Debug.Log("Подключен коннектор к 10A");
+    }
+    private void COM()
+    {
+         Debug.Log("Подключен коннектор к COM");
+    }
+    private void V()
+    {
+        Debug.Log("Подключен коннектор к V");
+    }
+    private void MA()
+    {
+        Debug.Log("Подключен коннектор к mA");
     }
 }

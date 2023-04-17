@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class WireBlack : MonoBehaviour
+
+public class WireRed : MonoBehaviour
 {
     private Vector3 basepos;
     private Vector3 needpos;
@@ -10,17 +11,16 @@ public class WireBlack : MonoBehaviour
     private Vector3 mA_Position;
     public Transform A10;
     private Vector3 A10_Position;
-    private bool Click1=false;
+    private bool Click1 = false;
     [SerializeField]
     private ClickerMA clickerMA;
     [SerializeField]
     private Clicker10A clicker10A;
+    public GameObject gameObject1;
     [SerializeField]
     private ClickerCOM clickerCOM;
     [SerializeField]
     private ClickerV clickerV;
-    public GameObject gameObject1;
-    public bool WireBlackOn=false;
     [SerializeField]
     private Animation anima;
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class WireBlack : MonoBehaviour
             mA = GameObject.Find("mA").GetComponent<Transform>();
         }
         basepos = gameObject.transform.localPosition;
-        if (A10==null)
+        if (A10 == null)
         {
             A10 = GameObject.Find("10A").GetComponent<Transform>();
         }
@@ -43,7 +43,7 @@ public class WireBlack : MonoBehaviour
     {
         if (clickerMA.ClickMA && Click1)
         {
-            anima.Play("WireStartMa");
+            anima.Play("RedStartMa");
             //anim.SetBool("Playe", true);
             //gameObject1.transform.localPosition = mA_Position;
              
@@ -52,7 +52,7 @@ public class WireBlack : MonoBehaviour
         }
         else if (clicker10A.Click10A && Click1)
         {
-            anima.Play("WireStart10A");
+            anima.Play("RedStart10A");
             //gameObject1.transform.localPosition = A10_Position;
             //anim.SetBool("Playr", true);
             Click1 = false;
@@ -61,48 +61,45 @@ public class WireBlack : MonoBehaviour
         }
         else if (clickerCOM.ClickCOM && Click1)
         {
-            WireBlackOn = true;
-            anima.Play("WireStartCOM");
+            anima.Play("RedStartCOM");
             Click1 = false;
              
             clickerCOM.ClickCOM = false;
         }
         else if (clickerV.ClickV && Click1)
         {
-            anima.Play("WireStartV");
+            anima.Play("RedStartV");
             Click1 = false;
              
             clickerV.ClickV = false;
         }
-        else if (Click1 && gameObject.transform.localPosition==new Vector3(1.53f, 0.96f, 4.8f))
+        else if (Click1 && gameObject.transform.localPosition == new Vector3(1.532f, 0.855f, 4.919f))
         {
-            anima.Play("WireBackMa");
+            anima.Play("RedBackMa");
             //anim.SetBool("Playr", false);
             //anim.SetBool("Playe", false);
             //gameObject1.transform.localPosition = basepos;
             Click1 = false;
         }
-        else if (Click1 && gameObject.transform.localPosition == new Vector3(1.548f, 1.07f, 6.26f))
+        else if (Click1 && gameObject.transform.localPosition == new Vector3(1.538f, 0.85f, 6.284f))
         {
-            anima.Play("WireBack10A");
+            anima.Play("RedBack10A");
             //anim.SetBool("Playr", false);
             //anim.SetBool("Playe", false);
             //gameObject1.transform.localPosition = basepos;
             Click1 = false;
         }
-        else if (Click1 && gameObject.transform.localPosition == new Vector3(-0.248f, 1.02f, 5.591f))
+        else if (Click1 && gameObject.transform.localPosition == new Vector3(-0.247f, 0.898f, 5.579f))
         {
-
-            anima.Play("WireBackCOM");
+            anima.Play("RedBackCOM");
             //anim.SetBool("Playr", false);
             //anim.SetBool("Playe", false);
             //gameObject1.transform.localPosition = basepos;
-            WireBlackOn = false;
             Click1 = false;
         }
-        else if (Click1 && gameObject.transform.localPosition == new Vector3(-2.178f, 0.932f, 5.535f))
+        else if (Click1 && gameObject.transform.localPosition == new Vector3(-2.146f, 0.853f, 5.571f))
         {
-            anima.Play("WireBackV");
+            anima.Play("RedBackV");
             //anim.SetBool("Playr", false);
             //anim.SetBool("Playe", false);
             //gameObject1.transform.localPosition = basepos;

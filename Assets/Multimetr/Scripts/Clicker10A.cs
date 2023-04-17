@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Clicker2 : MonoBehaviour
+public class Clicker10A : MonoBehaviour
 {
-    public bool Click3 = false;
+    private Action onChange;
+    public bool Click10A = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +19,16 @@ public class Clicker2 : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Click3 = true;
+        Click10A = true;
         Debug.Log("Третий элемент нажат");
+        if (onChange != null)
+        {
+            onChange();
+        }
     }
-
+    public void Button10AClick(Action on_change)
+    {
+        onChange = on_change;
+    }
 
 }
