@@ -23,6 +23,12 @@ public class WireRed : MonoBehaviour
     private ClickerV clickerV;
     [SerializeField]
     private Animation anima;
+    [SerializeField]
+    private RedButtonUI redButtonUI;
+    [SerializeField]
+    private MaButtonUI maButtonClick;
+    [SerializeField]
+    private A10ButtonUI a10ButtonUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,22 +47,23 @@ public class WireRed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clickerMA.ClickMA && Click1)
+        if ((clickerMA.ClickMA || maButtonClick.clickmAButtonUI) && (Click1 || redButtonUI.clickRedButton))
         {
             anima.Play("RedStartMa");
             //anim.SetBool("Playe", true);
             //gameObject1.transform.localPosition = mA_Position;
-             
+            redButtonUI.clickRedButton = false;
+            maButtonClick.clickmAButtonUI = false;
             Click1 = false;
             clickerMA.ClickMA = false;
         }
-        else if (clicker10A.Click10A && Click1)
+        else if ((clicker10A.Click10A || a10ButtonUI.click10AButton) && (Click1 || redButtonUI.clickRedButton))
         {
             anima.Play("RedStart10A");
-            //gameObject1.transform.localPosition = A10_Position;
-            //anim.SetBool("Playr", true);
             Click1 = false;
-             
+            a10ButtonUI.click10AButton = false;
+            redButtonUI.clickRedButton = false;
+
             clicker10A.Click10A = false;
         }
         else if (clickerCOM.ClickCOM && Click1)
@@ -73,36 +80,27 @@ public class WireRed : MonoBehaviour
              
             clickerV.ClickV = false;
         }
-        else if (Click1 && gameObject.transform.localPosition == new Vector3(1.532f, 0.855f, 4.919f))
+        else if ((Click1 || maButtonClick.clickmAButtonUI) && gameObject.transform.localPosition == new Vector3(1.532f, 0.855f, 4.919f))
         {
             anima.Play("RedBackMa");
-            //anim.SetBool("Playr", false);
-            //anim.SetBool("Playe", false);
-            //gameObject1.transform.localPosition = basepos;
             Click1 = false;
         }
-        else if (Click1 && gameObject.transform.localPosition == new Vector3(1.538f, 0.85f, 6.284f))
+        else if ((Click1 || a10ButtonUI.click10AButton) && gameObject.transform.localPosition == new Vector3(1.538f, 0.85f, 6.284f))
         {
             anima.Play("RedBack10A");
-            //anim.SetBool("Playr", false);
-            //anim.SetBool("Playe", false);
-            //gameObject1.transform.localPosition = basepos;
+
             Click1 = false;
         }
         else if (Click1 && gameObject.transform.localPosition == new Vector3(-0.247f, 0.898f, 5.579f))
         {
             anima.Play("RedBackCOM");
-            //anim.SetBool("Playr", false);
-            //anim.SetBool("Playe", false);
-            //gameObject1.transform.localPosition = basepos;
+
             Click1 = false;
         }
         else if (Click1 && gameObject.transform.localPosition == new Vector3(-2.146f, 0.853f, 5.571f))
         {
             anima.Play("RedBackV");
-            //anim.SetBool("Playr", false);
-            //anim.SetBool("Playe", false);
-            //gameObject1.transform.localPosition = basepos;
+
             Click1 = false;
         }
     }

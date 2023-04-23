@@ -16,7 +16,7 @@ public class DynamicCam : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; // скрываем курсор мыши и фиксируем его в центре экрана
+        //Cursor.lockState = CursorLockMode.Locked; // скрываем курсор мыши и фиксируем его в центре экрана
     }
 
     void Update()
