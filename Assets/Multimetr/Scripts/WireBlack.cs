@@ -25,6 +25,8 @@ public class WireBlack : MonoBehaviour
     private MaButtonUI maButtonClick;
     [SerializeField]
     private A10ButtonUI a10ButtonUI;
+    [SerializeField]
+    private COMButtomUI cOMButtomUI;
     public GameObject gameObject1;
     public bool WireBlackOn = false;
     [SerializeField]
@@ -63,13 +65,14 @@ public class WireBlack : MonoBehaviour
             a10ButtonUI.click10AButton = false;
             blackButtonUI.clickBlackButton = false;
         }
-        else if (clickerCOM.ClickCOM && Click1)
+        else if ((clickerCOM.ClickCOM || cOMButtomUI.clickCOMButton) && (Click1 || blackButtonUI.clickBlackButton))
         {
             WireBlackOn = true;
             anima.Play("WireStartCOM");
             Click1 = false;
-             
             clickerCOM.ClickCOM = false;
+            cOMButtomUI.clickCOMButton = false;
+            blackButtonUI.clickBlackButton = false;
         }
         else if (clickerV.ClickV && Click1)
         {
@@ -87,7 +90,7 @@ public class WireBlack : MonoBehaviour
             anima.Play("WireBack10A");
             Click1 = false;
         }
-        else if (Click1 && gameObject.transform.localPosition == new Vector3(-0.248f, 1.02f, 5.591f))
+        else if ((Click1 || cOMButtomUI.clickCOMButton) && gameObject.transform.localPosition == new Vector3(-0.248f, 1.02f, 5.591f))
         {
 
             anima.Play("WireBackCOM");

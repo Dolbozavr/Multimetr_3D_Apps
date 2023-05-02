@@ -29,6 +29,8 @@ public class WireRed : MonoBehaviour
     private MaButtonUI maButtonClick;
     [SerializeField]
     private A10ButtonUI a10ButtonUI;
+    [SerializeField]
+    private COMButtomUI cOMButtomUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,12 +68,13 @@ public class WireRed : MonoBehaviour
 
             clicker10A.Click10A = false;
         }
-        else if (clickerCOM.ClickCOM && Click1)
+        else if ((clickerCOM.ClickCOM || cOMButtomUI.clickCOMButton) && (Click1 || redButtonUI.clickRedButton))
         {
             anima.Play("RedStartCOM");
             Click1 = false;
-             
             clickerCOM.ClickCOM = false;
+            cOMButtomUI.clickCOMButton = false;
+            redButtonUI.clickRedButton = false;
         }
         else if (clickerV.ClickV && Click1)
         {
@@ -91,7 +94,7 @@ public class WireRed : MonoBehaviour
 
             Click1 = false;
         }
-        else if (Click1 && gameObject.transform.localPosition == new Vector3(-0.247f, 0.898f, 5.579f))
+        else if ((Click1 || cOMButtomUI.clickCOMButton) && gameObject.transform.localPosition == new Vector3(-0.247f, 0.898f, 5.579f))
         {
             anima.Play("RedBackCOM");
 
