@@ -23,22 +23,32 @@ public class MainScript : MonoBehaviour
     private ClickerCOM clickerCOM;
     [SerializeField]
     private WireBlack wireBlack;
+    [SerializeField]
+    private WireRed wireRed;
+    [SerializeField]
+    private BlackProbeScript blackProbe;
+    [SerializeField]
+    private RedProbeScript redProbe;
     // Start is called before the first frame update
     void Start()
     {
         tm = (TextMesh)GameObject.Find("TextMultimetr").GetComponent<TextMesh>();
         rotate.Rotating(KrytilkaChanged);
+        rotate.Rotating(OnOff);
         button1.Button1Click(OnOff);
         button2.Button2Click(AC_DC);
         clickerMA.ButtonMACLick(MA);
         clicker10A.Button10AClick(A10);
         clickerV.ButtonVClick(V);
         clickerCOM.ButtonCOMClick(COM);
+        redProbe.RedProbeVoid(OnOff);
+        blackProbe.BlackProbeVoid(OnOff);
     }
 
     // Update is called once per frame
     void Update()
     {
+
     }
     private void KrytilkaChanged()
     {
@@ -51,6 +61,10 @@ public class MainScript : MonoBehaviour
         else
             tm.text = " ";
         Debug.Log("Включение =" + button1.work1);
+        if ((blackProbe.ConnectToLeftClemma||blackProbe.ConnectToRightClemma)&&(redProbe.ConnectToRightClemma || redProbe.ConnectToLeftClemma) && (rotate.counter==2)&&(wireBlack.ConnectToCOM && wireRed.ConnectToV))
+        {
+            tm.text = "000024";
+        }
     }
     private void AC_DC()
     {

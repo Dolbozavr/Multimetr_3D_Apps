@@ -31,6 +31,12 @@ public class WireRed : MonoBehaviour
     private A10ButtonUI a10ButtonUI;
     [SerializeField]
     private COMButtomUI cOMButtomUI;
+    [SerializeField]
+    private VButtonUI vButtonUI;
+    public bool ConnectTomA = false;
+    public bool ConnectTo10A = false;
+    public bool ConnectToCOM = false;
+    public bool ConnectToV = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +57,7 @@ public class WireRed : MonoBehaviour
     {
         if ((clickerMA.ClickMA || maButtonClick.clickmAButtonUI) && (Click1 || redButtonUI.clickRedButton))
         {
+            ConnectTomA = true;
             anima.Play("RedStartMa");
             //anim.SetBool("Playe", true);
             //gameObject1.transform.localPosition = mA_Position;
@@ -61,6 +68,7 @@ public class WireRed : MonoBehaviour
         }
         else if ((clicker10A.Click10A || a10ButtonUI.click10AButton) && (Click1 || redButtonUI.clickRedButton))
         {
+            ConnectTo10A= true;
             anima.Play("RedStart10A");
             Click1 = false;
             a10ButtonUI.click10AButton = false;
@@ -70,40 +78,44 @@ public class WireRed : MonoBehaviour
         }
         else if ((clickerCOM.ClickCOM || cOMButtomUI.clickCOMButton) && (Click1 || redButtonUI.clickRedButton))
         {
+            ConnectToCOM = true;
             anima.Play("RedStartCOM");
             Click1 = false;
             clickerCOM.ClickCOM = false;
             cOMButtomUI.clickCOMButton = false;
             redButtonUI.clickRedButton = false;
         }
-        else if (clickerV.ClickV && Click1)
+        else if ((clickerV.ClickV || vButtonUI.clickVButton) && (Click1 || redButtonUI.clickRedButton))
         {
+            ConnectToV = true;
             anima.Play("RedStartV");
             Click1 = false;
-             
             clickerV.ClickV = false;
+            vButtonUI.clickVButton = false;
+            redButtonUI.clickRedButton = false;
         }
         else if ((Click1 || maButtonClick.clickmAButtonUI) && gameObject.transform.localPosition == new Vector3(1.532f, 0.855f, 4.919f))
         {
+            ConnectTomA=false;
             anima.Play("RedBackMa");
             Click1 = false;
         }
         else if ((Click1 || a10ButtonUI.click10AButton) && gameObject.transform.localPosition == new Vector3(1.538f, 0.85f, 6.284f))
         {
+            ConnectTo10A=false;
             anima.Play("RedBack10A");
-
             Click1 = false;
         }
         else if ((Click1 || cOMButtomUI.clickCOMButton) && gameObject.transform.localPosition == new Vector3(-0.247f, 0.898f, 5.579f))
         {
+            ConnectToCOM=false;
             anima.Play("RedBackCOM");
-
             Click1 = false;
         }
-        else if (Click1 && gameObject.transform.localPosition == new Vector3(-2.146f, 0.853f, 5.571f))
+        else if ((Click1 || vButtonUI.clickVButton) && gameObject.transform.localPosition == new Vector3(-2.146f, 0.853f, 5.571f))
         {
+            ConnectToV=false;
             anima.Play("RedBackV");
-
             Click1 = false;
         }
     }
