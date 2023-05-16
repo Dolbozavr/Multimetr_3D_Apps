@@ -29,6 +29,9 @@ public class MainScript : MonoBehaviour
     private BlackProbeScript blackProbe;
     [SerializeField]
     private RedProbeScript redProbe;
+    [SerializeField]
+    private GameObject EffectPrefab;
+    private Vector3 EffectPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,9 +64,27 @@ public class MainScript : MonoBehaviour
         else
             tm.text = " ";
         Debug.Log("Включение =" + button1.work1);
-        if ((blackProbe.ConnectToLeftClemma||blackProbe.ConnectToRightClemma)&&(redProbe.ConnectToRightClemma || redProbe.ConnectToLeftClemma) && (rotate.counter==2)&&(wireBlack.ConnectToCOM && wireRed.ConnectToV))
+        if (button1.work1 == true && (blackProbe.ConnectToLeftClemma||blackProbe.ConnectToRightClemma)&&(redProbe.ConnectToRightClemma || redProbe.ConnectToLeftClemma) && (rotate.counter==2) && (wireBlack.ConnectToCOM && wireRed.ConnectToV))
         {
             tm.text = "000024";
+        }
+        if (button1.work1 == true && button2.work2 == true && (blackProbe.ConnectToLeftClemma || blackProbe.ConnectToRightClemma) && (redProbe.ConnectToRightClemma || redProbe.ConnectToLeftClemma) && (rotate.counter == 22) && (wireBlack.ConnectToCOM && wireRed.ConnectTo10A))
+        {
+            tm.text = "0002.0";
+        }
+        if (button1.work1 == true && button2.work2 == false && (blackProbe.ConnectToLeftClemmaRozetki || blackProbe.ConnectToRightClemmaRozetki) && (redProbe.ConnectToRightClemmaRozetki || redProbe.ConnectToLeftClemmaRozetki) && (rotate.counter == 1) && (wireBlack.ConnectToCOM && wireRed.ConnectToV))
+        {
+            tm.text = ("000" + Random.Range(218, 224));
+        }
+        if (button1.work1 == true && button2.work2 == false && (blackProbe.ConnectToLeftClemmaRozetki || blackProbe.ConnectToRightClemmaRozetki) && (redProbe.ConnectToRightClemmaRozetki || redProbe.ConnectToLeftClemmaRozetki) && (rotate.counter == 2 || rotate.counter == 3 || rotate.counter == 4 || rotate.counter == 5) && (wireBlack.ConnectToCOM && wireRed.ConnectToV))
+        {
+            tm.text = ("000001");
+        }
+        if (button1.work1 == true && button2.work2 == false && (blackProbe.ConnectToLeftClemmaRozetki || blackProbe.ConnectToRightClemmaRozetki) && (redProbe.ConnectToRightClemmaRozetki || redProbe.ConnectToLeftClemmaRozetki) && (rotate.counter == 22 || rotate.counter == 21) && (wireBlack.ConnectToCOM && wireRed.ConnectTo10A))
+        {
+            Vector3 EffectPos= new Vector3(-12.44f, 3.27f, 6.28f);
+            Quaternion quaternion = Quaternion.Euler(0, 0, 0);
+            Instantiate(EffectPrefab, EffectPos,quaternion);
         }
     }
     private void AC_DC()

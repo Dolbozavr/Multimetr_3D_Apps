@@ -2599,6 +2599,7 @@ MonoBehaviour:
   wireRed: {fileID: 1254649956}
   blackProbe: {fileID: 2085380411}
   redProbe: {fileID: 1249175549}
+  EffectPrefab: {fileID: 131920, guid: 8a23a06107e96134598493163a37174f, type: 3}
 --- !u!1 &664735714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2707,6 +2708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 673301794}
   - component: {fileID: 673301795}
+  - component: {fileID: 673301796}
   m_Layer: 0
   m_Name: LeftConnector
   m_TagString: Untagged
@@ -2743,6 +2745,20 @@ CapsuleCollider:
   m_Height: 0.55
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &673301796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673301793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19da58fed55ba714dad7b2d259559fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickLeftClemmaRozetka: 0
+  RightClemPos: {x: 0, y: 0, z: 0}
 --- !u!1 &689471571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3785,6 +3801,7 @@ GameObject:
   - component: {fileID: 921063771}
   - component: {fileID: 921063770}
   - component: {fileID: 921063769}
+  - component: {fileID: 921063772}
   m_Layer: 0
   m_Name: Sphere (4)
   m_TagString: Untagged
@@ -3870,6 +3887,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921063767}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &921063772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921063767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c7fa3e55fd0474bafc764b476048e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickRightClemma: 0
+  RightClemPos: {x: 0, y: 0, z: 0}
 --- !u!1 &953655810
 GameObject:
   m_ObjectHideFlags: 0
@@ -3882,6 +3913,7 @@ GameObject:
   - component: {fileID: 953655814}
   - component: {fileID: 953655813}
   - component: {fileID: 953655812}
+  - component: {fileID: 953655815}
   m_Layer: 0
   m_Name: Sphere (6)
   m_TagString: Untagged
@@ -3967,6 +3999,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953655810}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &953655815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953655810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5650ebd294ebf74eb9b529ba7149ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickLeftClemma: 0
+  RightClemPos: {x: 0, y: 0, z: 0}
 --- !u!1 &962523730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4180,7 +4226,6 @@ GameObject:
   - component: {fileID: 969535817}
   - component: {fileID: 969535816}
   - component: {fileID: 969535815}
-  - component: {fileID: 969535818}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -4267,20 +4312,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969535813}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &969535818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969535813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c7fa3e55fd0474bafc764b476048e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ClickRightClemma: 0
-  RightClemPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1002356448
 GameObject:
   m_ObjectHideFlags: 0
@@ -4293,7 +4324,6 @@ GameObject:
   - component: {fileID: 1002356452}
   - component: {fileID: 1002356451}
   - component: {fileID: 1002356450}
-  - component: {fileID: 1002356453}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -4380,20 +4410,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002356448}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1002356453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002356448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5650ebd294ebf74eb9b529ba7149ce7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ClickLeftClemma: 0
-  RightClemPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1009172779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5483,7 +5499,7 @@ Transform:
   - {fileID: 7032791192852398795}
   m_Father: {fileID: 543450652348850434}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!111 &1249175548
 Animation:
   m_ObjectHideFlags: 0
@@ -5499,6 +5515,10 @@ Animation:
   - {fileID: 7400000, guid: a1479b5107ca0e34db0ccf34b1f39130, type: 2}
   - {fileID: 7400000, guid: 092a955ca6e2b854ba5ba5bd2a1f3eaa, type: 2}
   - {fileID: 7400000, guid: b3b5cf0b4e78a68469004dc9948f02c1, type: 2}
+  - {fileID: 7400000, guid: a056fff23f3ee5d418319a445131cf7c, type: 2}
+  - {fileID: 7400000, guid: e9d708a38b1815e4bbf9569b380c5d0e, type: 2}
+  - {fileID: 7400000, guid: 138bdb566a5a1bc458cadef8ae2cb55e, type: 2}
+  - {fileID: 7400000, guid: 8229b99437d579440abb852b6e1069e5, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -5515,11 +5535,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d91cba99b47def42a16ee41a36ad732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightClemmaPribora: {fileID: 969535818}
-  leftClemmaPribora: {fileID: 1002356453}
+  rightClemmaPribora: {fileID: 921063772}
+  leftClemmaPribora: {fileID: 953655815}
+  leftClemmaRozetki: {fileID: 673301796}
+  rightClemmaRozetki: {fileID: 1498879855}
   animat: {fileID: 1249175548}
   ConnectToRightClemma: 0
   ConnectToLeftClemma: 0
+  ConnectToRightClemmaRozetki: 0
+  ConnectToLeftClemmaRozetki: 0
 --- !u!65 &1249175550
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5844,7 +5868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1347462213
 Transform:
   m_ObjectHideFlags: 0
@@ -6152,7 +6176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1408982548
 Transform:
   m_ObjectHideFlags: 0
@@ -6307,6 +6331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1498879853}
   - component: {fileID: 1498879854}
+  - component: {fileID: 1498879855}
   m_Layer: 0
   m_Name: RightConnector
   m_TagString: Untagged
@@ -6343,6 +6368,20 @@ CapsuleCollider:
   m_Height: 0.55
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1498879855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498879852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8502ab57db89e47ba405dc26e899ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickRightClemmaRozetka: 0
+  RightClemPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1501452575
 GameObject:
   m_ObjectHideFlags: 0
@@ -9479,11 +9518,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c244b5e4e729642aa8f41d7a5343f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightClemmaPribora: {fileID: 969535818}
-  leftClemmaPribora: {fileID: 1002356453}
+  rightClemmaPribora: {fileID: 921063772}
+  leftClemmaPribora: {fileID: 953655815}
+  leftClemmaRozetki: {fileID: 673301796}
+  rightClemmaRozetki: {fileID: 1498879855}
   animat: {fileID: 2085380412}
   ConnectToRightClemma: 0
   ConnectToLeftClemma: 0
+  ConnectToRightClemmaRozetki: 0
+  ConnectToLeftClemmaRozetki: 0
 --- !u!111 &2085380412
 Animation:
   m_ObjectHideFlags: 0
@@ -9499,6 +9542,10 @@ Animation:
   - {fileID: 7400000, guid: 892769dd554b4714aa10c5d950564c66, type: 2}
   - {fileID: 7400000, guid: c47e73f5c0b43fa4abd53ec541420be0, type: 2}
   - {fileID: 7400000, guid: f767ee70cecb13543a68bf89b8a8e14d, type: 2}
+  - {fileID: 7400000, guid: 1003f4607f603964984adeef37e91ad6, type: 2}
+  - {fileID: 7400000, guid: 2788a53b487986a498a970b130912270, type: 2}
+  - {fileID: 7400000, guid: 3b3bb53033d1cff4fa8801f26d67ee3e, type: 2}
+  - {fileID: 7400000, guid: 1b417467596c77641b2bb5553756f744, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -9581,7 +9628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2103570075
 RectTransform:
   m_ObjectHideFlags: 0
