@@ -22,11 +22,17 @@ public class BlackProbeScript : MonoBehaviour
     public bool ConnectToLeftClemma = false;
     public bool ConnectToRightClemmaRozetki = false;
     public bool ConnectToLeftClemmaRozetki = false;
+    [SerializeField]
+    private GameObject BlackProbe;
+    [SerializeField]
+    private GameObject RightConnector;
+    [SerializeField]
+    private GameObject LeftConnector;
     // Start is called before the first frame update
     void Start()
     {
         rightClemmaPribora.ClickRightclemma(Update);
-        basepos = gameObject.transform.localPosition;
+        basepos = BlackProbe.transform.position;
     }
 
     // Update is called once per frame
@@ -49,14 +55,14 @@ public class BlackProbeScript : MonoBehaviour
         if (Click == true && leftClemmaRozetki.ClickLeftClemmaRozetka)
         {
             ConnectToLeftClemmaRozetki = true;
-            animat.Play("BlackProbeLeftRozetkaStart");
+            BlackProbe.transform.position = LeftConnector.transform.position;//animat.Play("BlackProbeLeftRozetkaStart");
             Click = false;
             leftClemmaRozetki.ClickLeftClemmaRozetka = false;
         }
         if (Click == true && rightClemmaRozetki.ClickRightClemmaRozetka)
         {
             ConnectToRightClemmaRozetki = true;
-            animat.Play("BlackProbeRightRozetkaStart");
+            BlackProbe.transform.position = RightConnector.transform.position;//animat.Play("BlackProbeRightRozetkaStart");
             Click = false;
             rightClemmaRozetki.ClickRightClemmaRozetka = false;
         }
@@ -66,22 +72,22 @@ public class BlackProbeScript : MonoBehaviour
             animat.Play("BlackProbeLeftBack");
             Click = false;
         }
-        if (Click == true && gameObject.transform.localPosition == new Vector3(12.47f, 2.592f, -0.294f))
+        if (Click == true && gameObject.transform.localPosition == new Vector3(19.294f, 0.919f, 0.628f))
         {
             ConnectToRightClemma = false;
             animat.Play("BlackProbeBack");
             Click = false;
         }
-        if (Click == true && gameObject.transform.localPosition == new Vector3(2.639f, 1.283f, -4.175f))
+        if (Click == true && ConnectToLeftClemmaRozetki==true)
         {
             ConnectToLeftClemmaRozetki = false;
-            animat.Play("BlackProbeLeftRozetkaBack");
+            BlackProbe.transform.position = basepos; //animat.Play("BlackProbeLeftRozetkaBack");
             Click = false;
         }
-        if (Click == true && gameObject.transform.localPosition == new Vector3(1.366f, 1.294f, -4.172f))
+        if (Click == true && ConnectToRightClemmaRozetki==true)
         {
             ConnectToRightClemmaRozetki = false;
-            animat.Play("BlackProbeRightRozetkaBack");
+            BlackProbe.transform.position = basepos; //animat.Play("BlackProbeRightRozetkaBack");
             Click = false;
         }
         if (onChange != null)

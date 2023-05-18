@@ -22,11 +22,17 @@ public class RedProbeScript : MonoBehaviour
     public bool ConnectToLeftClemma = false;
     public bool ConnectToRightClemmaRozetki = false;
     public bool ConnectToLeftClemmaRozetki = false;
+    [SerializeField]
+    private GameObject RedProbe;
+    [SerializeField]
+    private GameObject RightConnector;
+    [SerializeField]
+    private GameObject LeftConnector;
     // Start is called before the first frame update
     void Start()
     {
         rightClemmaPribora.ClickRightclemma(Update);
-        basepos = gameObject.transform.localPosition;
+        basepos = RedProbe.transform.position;
     }
 
     // Update is called once per frame
@@ -49,14 +55,14 @@ public class RedProbeScript : MonoBehaviour
         if (Click == true && leftClemmaRozetki.ClickLeftClemmaRozetka)
         {
             ConnectToLeftClemmaRozetki = true;
-            animat.Play("RedProbeLeftRozetkaStart");
+            RedProbe.transform.position = LeftConnector.transform.position;//animat.Play("RedProbeLeftRozetkaStart");
             Click = false;
             leftClemmaRozetki.ClickLeftClemmaRozetka = false;
         }
         if (Click == true && rightClemmaRozetki.ClickRightClemmaRozetka)
         {
             ConnectToRightClemmaRozetki = true;
-            animat.Play("RedProbeRightRozetkaStart");
+            RedProbe.transform.position = RightConnector.transform.position;//animat.Play("RedProbeRightRozetkaStart");
             Click = false;
             rightClemmaRozetki.ClickRightClemmaRozetka = false;
         }
@@ -72,16 +78,16 @@ public class RedProbeScript : MonoBehaviour
             animat.Play("RedProbeBack");
             Click = false;
         }
-        if (Click == true && gameObject.transform.localPosition == new Vector3(59.214f, -68.22f, -98.375f))
+        if (Click == true && ConnectToLeftClemmaRozetki==true)
         {
             ConnectToLeftClemmaRozetki = false;
-            animat.Play("RedProbeLeftRozetkaBack");
+            RedProbe.transform.position = basepos;//animat.Play("RedProbeLeftRozetkaBack");
             Click = false;
         }
-        if (Click == true && gameObject.transform.localPosition == new Vector3(57.94f, -68.225f, -98.35f))
+        if (Click == true && ConnectToRightClemmaRozetki==true)
         {
             ConnectToRightClemmaRozetki = false;
-            animat.Play("RedProbeRightRozetkaBack");
+            RedProbe.transform.position = basepos;//animat.Play("RedProbeRightRozetkaBack");
             Click = false;
         }
         if (onChange != null)
